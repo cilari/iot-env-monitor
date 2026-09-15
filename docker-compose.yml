@@ -1,0 +1,39 @@
+services:
+  # One-off: backfill 7 days of historical data, then exit.
+  prefill:
+    build: .
+    command: python src/prefill_history.py --days 7
+    environment:
+      TZ: Australia/Sydney
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./data:/app/data
+
+  # Automated live collector: one reading per interval, runs continuously.
+  collector:
+    build: .
+    command: python src/collector.py
+    restart: unless-stopped
+    environment:
+      TZ: Australia/Sydney
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      prefill:
+        condition: service_completed_successfully
+
+  # Live dashboard, reachable at http://localhost:8501
+  dashboard:
+    build: .
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+    environment:
+      TZ: Australia/Sydney
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      prefill:
+        condition: service_completed_successfully
