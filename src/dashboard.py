@@ -128,6 +128,7 @@ df = load_data()
 st.title("🌡️ IoT Environmental Monitoring Dashboard")
 st.caption(f"Simulated sensor site: **{config.LOCATION_NAME}** · "
            f"data source: Open-Meteo API · auto-refresh every {REFRESH_MS//1000}s")
+st.caption("Built by **Yucen (Lari) Xie**")
 
 if df.empty:
     st.warning("No data yet. Run `python3 prefill_history.py` and `python3 collector.py` first.")
