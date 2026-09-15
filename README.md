@@ -6,7 +6,7 @@ A simulated **IoT environmental monitoring system** that collects live weather d
   <img src="assets/dashboard.png" alt="Live monitoring dashboard" width="800">
 </p>
 
-> **Live demo:** _add your Streamlit Community Cloud URL here_ · **Author:** Yucen (Lari) Xie
+> **Live demo:** [iot-env-monitor-xie.streamlit.app](https://iot-env-monitor-xie.streamlit.app/) · **Author:** Yucen (Lari) Xie
 
 ---
 
