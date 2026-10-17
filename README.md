@@ -123,7 +123,3 @@ python tests/test_storage.py        # or: python -m pytest tests/ -q
 ## 🔭 Future improvements
 
 Message broker (MQTT/Kafka) · managed time-series database · scheduled cloud collection (e.g. Lambda + EventBridge) · threshold alerting · multiple sensor locations · real hardware (ESP32 / Raspberry Pi).
-
----
-
-*Built by **Yucen (Lari) Xie** as a data-engineering / IoT portfolio project.*
